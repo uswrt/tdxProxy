@@ -1,0 +1,58 @@
+// TdxProxy.idl : TdxProxy 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(TdxProxy.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(a817e7a2-43fa-11d0-9e44-00aa00b6770a),
+	dual,	
+	pointer_default(unique)
+]
+interface IComponentRegistrar : IDispatch
+{
+	[id(1)]	HRESULT Attach([in] BSTR bstrPath);
+	[id(2)]	HRESULT RegisterAll();
+	[id(3)]	HRESULT UnregisterAll();
+	[id(4)]	HRESULT GetComponents([out] SAFEARRAY(BSTR)* pbstrCLSIDs, [out] SAFEARRAY(BSTR)* pbstrDescriptions);
+	[id(5)]	HRESULT RegisterComponent([in] BSTR bstrCLSID);
+	[id(6)] HRESULT UnregisterComponent([in] BSTR bstrCLSID);
+};
+
+[
+	object,
+	uuid(7ADC239B-6BAB-4FC0-9D17-65E20455B555),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ITdxClient : IDispatch{
+};
+[
+	uuid(CCEF9E64-0CAB-45D2-A695-DB4095C26666),
+	version(1.0),
+	custom(a817e7a1-43fa-11d0-9e44-00aa00b6770a,"{F33259B0-55E2-43F3-8632-440E98A35020}")
+]
+library TdxProxyLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(F33259B0-55E2-43F3-8632-440E98A35020)		
+	]
+	coclass CompReg
+	{
+		[default] interface IComponentRegistrar;
+	};
+	[
+		uuid(5281C9E8-EA61-4EAB-ABF2-9BB25C9B6998)		
+	]
+	coclass TdxClient
+	{
+		[default] interface ITdxClient;
+	};
+};
+

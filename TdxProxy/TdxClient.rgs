@@ -1,0 +1,26 @@
+HKCR
+{
+	TdxClient.1 = s 'TdxClient Class'
+	{
+		CLSID = s '{5281C9E8-EA61-4EAB-ABF2-9BB25C9B6998}'
+	}
+	TdxClient = s 'TdxClient Class'
+	{		
+		CurVer = s 'TdxClient.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {5281C9E8-EA61-4EAB-ABF2-9BB25C9B6998} = s 'TdxClient Class'
+		{
+			ProgID = s 'TdxClient.1'
+			VersionIndependentProgID = s 'TdxClient'
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{CCEF9E64-0CAB-45D2-A695-DB4095C26666}'
+			Version = s '1.0'
+		}
+	}
+}
