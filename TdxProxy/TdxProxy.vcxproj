@@ -154,6 +154,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="apicpp.txt" />
+    <Text Include="D:\tcapi.txt" />
     <Text Include="ExHqApiCpp.txt" />
     <Text Include="HqApi.txt" />
     <Text Include="L2HqApiCpp.txt" />
