@@ -31,6 +31,9 @@ interface IComponentRegistrar : IDispatch
 	pointer_default(unique)
 ]
 interface ITdxClient : IDispatch{
+	[id(1), helpstring("µÇÂ¼")] HRESULT Tdx_Login(BSTR IP, SHORT Port, BSTR version, BSTR AccountNo, BSTR JyPassword, BSTR TxPassword, BSTR* ErrInfo, [out, retval] LONG* ClientID);
+	[id(2), helpstring("³õÊ¼»¯")] HRESULT Tdx_Init();
+	[id(3), helpstring("ÍË³ö")] HRESULT Tdx_Exit();
 };
 [
 	uuid(CCEF9E64-0CAB-45D2-A695-DB4095C26666),

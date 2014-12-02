@@ -23,6 +23,9 @@ class ATL_NO_VTABLE CTdxClient :
 	public CComCoClass<CTdxClient, &CLSID_TdxClient>,
 	public IDispatchImpl<ITdxClient, &IID_ITdxClient, &LIBID_TdxProxyLib, /*wMajor =*/ 1, /*wMinor =*/ 0>
 {
+
+	HINSTANCE hDLL;
+	
 public:
 	CTdxClient()
 	{
@@ -53,6 +56,9 @@ public:
 
 
 
+	STDMETHOD(Tdx_Login)(BSTR IP, SHORT Port, BSTR version, BSTR AccountNo, BSTR JyPassword, BSTR TxPassword, BSTR* ErrInfo, LONG* ClientID);
+	STDMETHOD(Tdx_Init)();
+	STDMETHOD(Tdx_Exit)();
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(TdxClient), CTdxClient)
